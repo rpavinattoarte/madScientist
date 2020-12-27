@@ -1,15 +1,16 @@
 #include <iostream>
 
-void PrintIntroduction()
+void PrintIntroduction(int difficulty)
 {
     //Welcome message
-    std::cout << "\nYou are a scientist working on a secret project call 'tripleX'.\n";
+    std::cout << "\nYou are a scientist working on a secret project call 'tripleX'." << std::endl;
+    std::cout << "Laboratory nivel - " << difficulty << std::endl;
     std::cout << "RESTRICT AREA! Insert the password 'Three numbers' to get access: " << std::endl;
 }
 
-bool PlayGame()
+bool PlayGame(int difficulty)
 {
-    PrintIntroduction();
+    PrintIntroduction(difficulty);
 
     //Variables
     const int codeA = 4, codeB = 3, codeC = 2;
@@ -47,13 +48,21 @@ bool PlayGame()
 
 int main()
 {
+    int levelDifficulty = 1;
+
     while (true)
     {
-        bool bLevelComplete = PlayGame();
+        bool bLevelComplete = PlayGame(levelDifficulty);
         //Clears the errors
         std::cin.clear();
         //Discards the buffer
         std::cin.ignore();
+
+        if (bLevelComplete)
+        {
+            /* Increase the level dificulty*/
+            ++levelDifficulty;
+        }
     }
 
     return 0;

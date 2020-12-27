@@ -4,13 +4,13 @@ void PrintIntroduction()
 {
     //Welcome message
     std::cout << "\nYou are a scientist working on a secret project call 'tripleX'.\n";
-    std::cout << "\nPlease, enter the credentials to access the laboratory. \n";
     std::cout << "RESTRICT AREA! Insert the password 'Three numbers' to get access: " << std::endl;
 }
 
-void PlayGame()
+bool PlayGame()
 {
-  
+    PrintIntroduction();
+
     //Variables
     const int codeA = 4, codeB = 3, codeC = 2;
     const int codeSum = codeA + codeB + codeC;
@@ -36,16 +36,25 @@ void PlayGame()
     if (guessSum == codeSum)
     {
         std::cout << "\nWelcome! Access Allowed." << std::endl;
+        return true;
     }
     else
     {
         std::cout << "Sorry, Access denied! Try again..." << std::endl;
+        return false;
     }
 }
 
 int main()
 {
-    PrintIntroduction();
-    PlayGame();
+    while (true)
+    {
+        bool bLevelComplete = PlayGame();
+        //Clears the errors
+        std::cin.clear();
+        //Discards the buffer
+        std::cin.ignore();
+    }
+
     return 0;
 }

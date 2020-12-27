@@ -5,6 +5,7 @@ int main()
     //Welcome message
     std::cout << "\nYou are a scientist working on a secret project call 'tripleX'.\n";
     std::cout << "\nPlease, enter the credentials to access the laboratory. \n";
+    std::cout << "RESTRICT AREA! Insert the password 'Three numbers' to get access: " << std::endl;
 
     //Variables
     const int codeA = 4, codeB = 3, codeC = 2;
@@ -26,8 +27,15 @@ int main()
     //Return message from prompt command
     std::cout << "Print the Sum " << codeSum << std::endl;
     std::cout << "Print the Product " << codeProduct << std::endl;
-    std::cout << "RESTRICT AREA! Insert the password 'Three numbers' to get access: ";
 
-    
+    if (guessSum == codeSum)
+    {
+        std::cout << "\nWelcome! Access Allowed." << std::endl;
+    }
+    else
+    {
+        std::cout << "Sorry, Access denied! Try again..." << std::endl;
+    }
+
     return 0;
 }

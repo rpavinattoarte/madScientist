@@ -13,7 +13,7 @@ bool PlayGame(int difficulty)
     PrintIntroduction(difficulty);
 
     //Variables
-    const int codeA = 4, codeB = 3, codeC = 2;
+    const int codeA = rand(), codeB = rand(), codeC = rand();
     const int codeSum = codeA + codeB + codeC;
     const int codeProduct = codeA * codeB * codeC;
     int playerGuess;
@@ -49,8 +49,9 @@ bool PlayGame(int difficulty)
 int main()
 {
     int levelDifficulty = 1;
+    const int maxDificulty = 5;
 
-    while (true)
+    while (levelDifficulty <= maxDificulty)
     {
         bool bLevelComplete = PlayGame(levelDifficulty);
         //Clears the errors
